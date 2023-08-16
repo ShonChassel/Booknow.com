@@ -3,7 +3,7 @@ import Skeleton from "../../components/skeleton/Skeleton";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
-    let { data, loading, error } = useFetch("/hotels?featured=true");
+    let { data, loading, error } = useFetch("https://booknow-com.onrender.com/api/hotels?featured=true");
 
     console.log("data", data);
     data = data.slice(0, 4);
