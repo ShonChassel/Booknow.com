@@ -3,7 +3,7 @@ import "./featured.css";
 
 const Featured = () => {
     const { data, loading, error } = useFetch(
-        "/hotels/countByCity?cities=tulum,berlin,london"
+        "https://booknow-com.onrender.com/api/hotels/countByCity?cities=tulum,berlin,london"
     );
 
     return (
