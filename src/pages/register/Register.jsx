@@ -34,7 +34,7 @@ const Register = ({ inputs, title }) => {
             console.log(newUser);
 
             dispatch({ type: "LOGIN_START" });
-            const res = await axios.post("/auth/register",newUser);
+            const res = await axios.post("https://booknow-com.onrender.com/api/auth/register",newUser);
             console.log('res',res);
             dispatch({ type: "LOGIN_SUCCESS", payload: newUser });
             // localStorage.setItem("user", JSON.stringify(newUser))
