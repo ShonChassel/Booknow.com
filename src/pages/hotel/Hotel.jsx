@@ -24,20 +24,39 @@ const Hotel = () => {
     const [open, setOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
 
-    const { data, loading, error } = useFetch(`https://booknow-com.onrender.com/api/hotels/find/${id}`);
+    const { data, loading, error } = useFetch(
+        `https://booknow-com.onrender.com/api/hotels/find/${id}`
+    );
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const { dates, options } = useContext(SearchContext);
 
     const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+
     function dayDifference(date1, date2) {
         const timeDiff = Math.abs(date2.getTime() - date1.getTime());
         const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
         return diffDays;
     }
 
-    const days = dayDifference(dates[0].endDate, dates[0].startDate);
+    console.log("dates", dates);
+    let days;
+
+    const setDays = () => {
+        if (dates.length === 0) {
+            console.log("No dates available.");
+            return;
+        }
+
+        if (!dates[0].endDate) {
+            dates[0].endDate = new Date();
+        }
+
+        days = dayDifference(dates[0].endDate, dates[0].startDate);
+    };
+
+    setDays();
 
     const handleOpen = (i) => {
         setSlideNumber(i);
@@ -63,7 +82,7 @@ const Hotel = () => {
             navigate("/login");
         }
     };
-    
+
     return (
         <div>
             <Navbar />

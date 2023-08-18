@@ -3,7 +3,7 @@ import Skeleton from "../../components/skeleton/Skeleton";
 import "./propertyList.css";
 
 const PropertyList = () => {
-    const { data, loading, error } = useFetch("/hotels/countByType");
+    let { data, loading, error } = useFetch("https://booknow-com.onrender.com/api/hotels/countByType");
     const images = [
         "https://cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=",
         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/383834719.jpg?k=a8ed632aeaf2eb621e6753e941d4fb2f858005614b603cdef5bfe644ce1a1906&o=&hp=1",
@@ -11,7 +11,7 @@ const PropertyList = () => {
         "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-villas_300/dd0d7f8202676306a661aa4f0cf1ffab31286211.jpg",
         "https://a0.muscache.com/im/pictures/8d9afde8-3412-4ca5-92a3-de1c8c628360.jpg?im_w=720",
     ];
-
+    // loading = true
     return (
       
         <div className="pList">

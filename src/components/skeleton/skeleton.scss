@@ -2,6 +2,11 @@
     animation: skeleton-loading 1s linear infinite alternate;
     border-radius: 10px;
 }
+
+.skeleton-box{
+    padding-top: 5px;  
+}
+
 .img-skeleton {
     width: 100%;
     aspect-ratio: 1/1;
@@ -9,6 +14,7 @@
 .skeleton-txt {
     height: 20px;
     border-radius: 3px;
+    border-radius: 8px;
 
     &.skeleton-name {
         width: 55%;
