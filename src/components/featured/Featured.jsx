@@ -6,8 +6,12 @@ const Featured = () => {
         "https://booknow-com.onrender.com/api/hotels/countByCity?cities=tulum,berlin,london"
     );
 
+console.log("hhh",data);
+
+
     return (
         <div className="featured">
+
             {loading ? "Loading please wait" : <><div className="featuredItem">
                 <img
                     src="https://cf.bstatic.com/xdata/images/hotel/max500/129956285.jpg?k=dcfddbe438ceff751698c179de00ba7f97eae8a0c58b23bba8f051e81bf255be&o=&hp=1"
