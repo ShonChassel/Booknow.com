@@ -1,6 +1,7 @@
 .navbar {
     height: 50px;
-    background-color: #003580;
+    /* background-color: #003580; */
+    background-color: #003b95;
     display: flex;
     justify-content: center;
 }

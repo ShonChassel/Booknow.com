@@ -27,3 +27,11 @@
   bottom: 20px;
   left: 20px;
 }
+
+@media (max-width: 400px) {
+  .featured{
+     flex-direction: column; 
+
+     
+  }
+}

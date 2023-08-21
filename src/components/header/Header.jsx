@@ -7,7 +7,7 @@ import {
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./header.css";
+import "./header.scss";
 import { DateRange } from "react-date-range";
 import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
@@ -51,6 +51,7 @@ const Header = ({ type }) => {
 const {dispatch} = useContext(SearchContext)
 
   const handleSearch = () => {
+    console.log('destination',destination);
     dispatch({type: "NEW_SEARCH", payload: {destination, dates, options}})
     navigate("/hotels", { state: { destination, dates, options } });
   };
@@ -99,9 +100,12 @@ const {dispatch} = useContext(SearchContext)
               more with a free Lamabooking account
             </p>
             {!user && <button className="headerBtn">Sign in / Register</button>}
+
             <div className="headerSearch">
+
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                {/* <FontAwesomeIcon icon={faBed} className="headerIcon" /> */}
+                <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1692635989/where_lmkctf.svg" alt="" className="headerIcon"/>
                 <input
                   type="text"
                   placeholder="Where are you going?"
@@ -109,8 +113,10 @@ const {dispatch} = useContext(SearchContext)
                   onChange={(e) => setDestination(e.target.value)}
                 />
               </div>
+
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+                {/* <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" /> */}
+                <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1692636314/Days_atamoj.svg" alt="" className="headerIcon"/>
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
@@ -129,8 +135,10 @@ const {dispatch} = useContext(SearchContext)
                   />
                 )}
               </div>
+
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                {/* <FontAwesomeIcon icon={faPerson} className="headerIcon" /> */}
+                <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1692636490/person_wnjqp3.svg" alt="" className="headerIcon"/>
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
                   className="headerSearchText"
@@ -158,6 +166,7 @@ const {dispatch} = useContext(SearchContext)
                         </button>
                       </div>
                     </div>
+
                     <div className="optionItem">
                       <span className="optionText">Children</span>
                       <div className="optionCounter">
@@ -203,6 +212,7 @@ const {dispatch} = useContext(SearchContext)
                   </div>
                 )}
               </div>
+
               <div className="headerSearchItem">
                 <button className="headerBtn" onClick={handleSearch}>
                   Search

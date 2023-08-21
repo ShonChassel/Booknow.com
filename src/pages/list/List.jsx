@@ -23,6 +23,7 @@ const handleClick = () => {
   reFetch()
 }
 
+console.log('data',data);
   return (
     <div>
       <Navbar />
