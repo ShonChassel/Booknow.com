@@ -21,9 +21,9 @@ import NewHotel from "./pages/dashboard/newHotel/NewHotel";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
+  const { user } = useContext(AuthContext)
 
   const ProtectedRoute = ({ children }) => {
-    const { user } = useContext(AuthContext)
     if (!user) {
       return <Navigate to="/login" />;
     }
@@ -36,7 +36,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={user ? <Navigate to="/"/> : <Login />} />
         <Route path="/hotels" element={<List />} />
         <Route path="/hotels/:id" element={<Hotel />} />
         <Route path="/login" element={<Login />} />
