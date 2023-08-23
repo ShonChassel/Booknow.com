@@ -1,0 +1,67 @@
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    border-radius: 10px;
+}
+
+.skeleton-box {
+    padding-top: 5px;
+}
+
+.img-skeleton {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+.skeleton-txt {
+    height: 20px;
+    border-radius: 3px;
+    border-radius: 8px;
+
+    &.skeleton-name {
+        width: 55%;
+    }
+    &.skeleton-rate {
+        width: 16%;
+    }
+    &.skeleton-desc {
+        width: 35%;
+    }
+    &.skeleton-date {
+        width: 25%;
+    }
+    &.skeleton-price {
+        width: 23%;
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(0, 0%, 72%);
+    }
+    100% {
+        background-color: hsl(0, 0%, 92%);
+    }
+}
+
+.featured {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 1;
+}
+
+.featuredItem {
+    position: relative;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;
+    flex: 1;
+}
+
+.featuredImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

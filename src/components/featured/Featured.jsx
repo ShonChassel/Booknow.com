@@ -1,5 +1,6 @@
 import useFetch from "../../hooks/useFetch";
 import "./featured.scss";
+import Skeleton from "../../components/mainSkeleton/mainSkeleton";
 import { SearchContext } from "../../context/SearchContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -43,11 +44,10 @@ const Featured = () => {
         navigate("/hotels", { state: searchPayload });
     };
 
-    
     return (
         <div className="featured">
             {loading ? (
-                "Loading please wait"
+                <Skeleton/>
             ) : (
                 <>
                     <div

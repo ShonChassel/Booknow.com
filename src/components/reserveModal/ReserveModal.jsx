@@ -1,4 +1,4 @@
-import "./reserve.css";
+import "./reserve.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import useFetch from "../../hooks/useFetch";
@@ -75,6 +75,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                 <span>Select your rooms:</span>
                 {data.map((item) => (
                     <div className="rItem" key={item._id}>
+                        <img src={item.photos[1]} alt="" />
                         <div className="rItemInfo">
                             <div className="rTitle">{item.title}</div>
                             <div className="rDesc">{item.desc}</div>
