@@ -38,6 +38,10 @@ const Login = () => {
         }
     };
 
+    const google = () => {
+        window.open("http://localhost:8800/api/auth/google", "_self");
+      };
+
     return (
         <div className="login">
             <header className="login-header">
@@ -50,7 +54,7 @@ const Login = () => {
             <h1 className="loginTitle">Choose a Login Method</h1>
             <div className="wrap">
                 <div className="left">
-                    <div className="loginButton google">
+                    <div className="loginButton google" onClick={google}>
                         <img src={Google} alt="" className="icon" />
                         Google
                     </div>
