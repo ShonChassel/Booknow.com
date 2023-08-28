@@ -6,9 +6,12 @@ import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import SimpleImageSlider from "react-simple-image-slider";
 
 const ReserveModal = ({ setOpen, hotelId }) => {
-    const { data, loading, error } = useFetch(`https://booknow-com.onrender.com/api/hotels/rooms/${hotelId}`);
+    const { data, loading, error } = useFetch(
+        `https://booknow-com.onrender.com/api/hotels/rooms/${hotelId}`
+    );
     const [selectedRooms, setSelectedRooms] = useState([]);
     const { dates } = useContext(SearchContext);
 
@@ -50,9 +53,12 @@ const ReserveModal = ({ setOpen, hotelId }) => {
         try {
             await Promise.all(
                 selectedRooms.map((roomId) => {
-                    const res = axios.put(`https://booknow-com.onrender.com/api/rooms/availability/${roomId}`, {
-                        dates: alldates,
-                    });
+                    const res = axios.put(
+                        `https://booknow-com.onrender.com/api/rooms/availability/${roomId}`,
+                        {
+                            dates: alldates,
+                        }
+                    );
                     return res.data;
                 })
             );
@@ -63,7 +69,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
         }
     };
 
-    console.log(data);
+    console.log("photos", data.photos);
     return (
         <div className="reserve">
             <div className="rContainer">
@@ -75,7 +81,14 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                 <span>Select your rooms:</span>
                 {data.map((item) => (
                     <div className="rItem" key={item._id}>
-                        <img src={item.photos[1]} alt="" />
+                        {/* <img src={item.photos[1]} alt="" /> */}
+                        <SimpleImageSlider
+                            width={300}
+                            height={200}
+                            images={item.photos}
+                            showBullets={true}
+                            showNavs={true}
+                        />
                         <div className="rItemInfo">
                             <div className="rTitle">{item.title}</div>
                             <div className="rDesc">{item.desc}</div>
@@ -99,7 +112,9 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                         </div>
                     </div>
                 ))}
-                <button className="rButton" onClick={handleReserve}>Reserve Now!</button>
+                <button className="rButton" onClick={handleReserve}>
+                    Reserve Now!
+                </button>
             </div>
         </div>
     );
