@@ -69,7 +69,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
         }
     };
 
-    console.log("photos", data.photos);
+    console.log("photos", data);
     return (
         <div className="reserve">
             <div className="rContainer">

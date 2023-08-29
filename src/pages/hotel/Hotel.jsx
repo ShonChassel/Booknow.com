@@ -40,7 +40,7 @@ const Hotel = () => {
         return diffDays;
     }
 
-    console.log("dates", dates);
+    console.log("data", data);
     let days;
 
     const setDays = () => {
@@ -54,6 +54,7 @@ const Hotel = () => {
         }
 
         days = dayDifference(dates[0].endDate, dates[0].startDate);
+        
     };
 
     setDays();
@@ -82,7 +83,7 @@ const Hotel = () => {
             navigate("/login");
         }
     };
-
+    console.log("days", days);
     return (
         <div>
             <Navbar />
@@ -158,13 +159,9 @@ const Hotel = () => {
                                     9.8!
                                 </span>
                                 <h2>
-                                    <b>
-                                        $
-                                        {days *
-                                            data.cheapestPrice *
-                                            options.room}
-                                    </b>{" "}
-                                    ({days} nights)
+                                    <b>${days === 0 ? data.cheapestPrice :
+                                     days* data.cheapestPrice * options.room}</b>{" "}
+                                    ({days === 0 ? 1 : days} nights)
                                 </h2>
                                 <button onClick={handleClick}>
                                     Reserve or Book Now!

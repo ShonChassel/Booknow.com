@@ -19,6 +19,7 @@ import { productInputs, userInputs } from "./formSource";
 import New from "./pages/dashboard/new/New";
 import NewHotel from "./pages/dashboard/newHotel/NewHotel";
 
+
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   const { user } = useContext(AuthContext)
