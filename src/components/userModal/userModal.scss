@@ -1,16 +1,42 @@
-.dropDownProfile{
+.dropDownProfile {
     position: absolute;
-    top: 4.5rem;
-    right: 1.5rem;
-    width: 120px;
-    padding: 15px;
+    top: 3.4rem;
+    right: -0.5rem;
+    width: 134px;
+    // padding: 15px;
     border-radius: 15px;
     background-color: white;
     border: 1px solid gray;
     z-index: 20;
+
+    .dropDown-container {
+        color: black;
+
+        button {
+            display: flex;
+            flex-direction: row;
+            margin: 15px;
+            background: #f0f8ff00;
+            border: 0;
+            font-family: system-ui;
+            font-size: 14px;
+            gap: 5px;
+
+            img{
+                height: 20px;
+                
+            }
+        }
+    }
 }
 
-.dropDownProfile::before{
+.dropDownProfile::before {
+    content: "";
     position: absolute;
-    top: -2rem;
+    top: -0.2rem;
+    right: 0.9rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: white;
 }

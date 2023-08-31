@@ -16,6 +16,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
     const { dates } = useContext(SearchContext);
 
     const getDatesInRange = (startDate, endDate) => {
+
         const start = new Date(startDate);
         const end = new Date(endDate);
         const date = new Date(start.getTime());
@@ -27,6 +28,8 @@ const ReserveModal = ({ setOpen, hotelId }) => {
         }
         return dates;
     };
+
+
     const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
 
     const isAvailable = (roomNumber) => {

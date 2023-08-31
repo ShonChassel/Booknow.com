@@ -39,6 +39,7 @@ const Navbar = () => {
                         <img className="userImg" src={user.img  ? user.img : 'https://res.cloudinary.com/dirvusyaz/image/upload/v1672414295/login_e5hmrq.svg'} alt="" />
                         <div> {user.username} </div>
                         <img src={!toggle ? arrow : close } alt="" onClick={() => setToggle(!toggle)} className="chevron" />
+                        {toggle && <UserModal />}
                     </div>
                 ) : (
                     <div className="navItems">
@@ -49,7 +50,7 @@ const Navbar = () => {
                     </div>
                 )}
             </div>
-            {toggle ? <UserModal/> : <div></div>}
+            
         </div>
     );
 };
