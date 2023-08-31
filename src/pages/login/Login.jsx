@@ -8,7 +8,13 @@ import Google from "../../assets/google.png";
 import Facebook from "../../assets/facebook.png";
 import Github from "../../assets/github.png";
 
+import user_icon from "../../assets/person.png";
+import password_icon from "../../assets/password.png";
+import show_icon from "../../assets/show.svg";
+import hide_icon from "../../assets/hide.svg";
+
 const Login = () => {
+    const [toggle, setToggle] = useState(false);
     const [credentials, setCredentials] = useState({
         username: undefined,
         password: undefined,
@@ -20,6 +26,7 @@ const Login = () => {
 
     const handleChange = (e) => {
         setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+        console.log(credentials);
     };
 
     const handleClick = async (e) => {
@@ -40,18 +47,19 @@ const Login = () => {
 
     const google = () => {
         window.open("http://localhost:8800/api/auth/google", "_self");
-      };
+    };
+
+    const Home = () => {
+        navigate("/");
+    };
 
     return (
         <div className="login">
             <header className="login-header">
-                <p>Booknow.com</p>
+                <p onClick={Home}>Booknow.com</p>
             </header>
 
-            
-                
-
-            <h1 className="loginTitle">Choose a Login Method</h1>
+            <h1 className="loginTitle"> Login </h1>
             <div className="wrap">
                 <div className="left">
                     <div className="loginButton google" onClick={google}>
@@ -74,18 +82,31 @@ const Login = () => {
                 </div>
 
                 <div className="right">
-                    <input
-                        type="text"
-                        placeholder="username"
-                        id="username"
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="password"
-                        placeholder="password"
-                        id="password"
-                        onChange={handleChange}
-                    />
+                    <div className="input">
+                        <img src={user_icon} alt="" />
+                        <input
+                            onChange={handleChange}
+                            type="username"
+                            placeholder="Username"
+                            id="username"
+                        />
+                    </div>
+
+                    <div className="input">
+                        <img src={password_icon} alt="" />
+                        <input
+                            onChange={handleChange}
+                            type={!toggle ? "password" : "text"}
+                            placeholder="Password"
+                            id="password"
+                        />
+                        <img
+                            src={!toggle ? hide_icon : show_icon}
+                            alt=""
+                            onClick={() => setToggle(!toggle)}
+                            className="show-password"
+                        />
+                    </div>
                     <button className="submit" onClick={handleClick}>
                         Login
                     </button>

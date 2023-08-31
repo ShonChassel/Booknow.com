@@ -34,6 +34,8 @@ const FeaturedProperties = () => {
     // });
 
     
+    
+
     console.log("data", data);
     return (
         <div className="fp">

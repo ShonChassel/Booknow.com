@@ -5,10 +5,17 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
+import user_icon from "../../assets/person.png";
+import email_icon from "../../assets/email.png";
+import password_icon from "../../assets/password.png";
+import show_icon from "../../assets/show.svg";
+import hide_icon from "../../assets/hide.svg";
+
 const Register = ({ inputs, title }) => {
     const navigate = useNavigate();
     const [file, setFile] = useState("");
     const [info, setInfo] = useState({});
+    const [toggle, setToggle] = useState(false)
 
     const { loading, error, dispatch } = useContext(AuthContext);
 
@@ -34,8 +41,11 @@ const Register = ({ inputs, title }) => {
             console.log(newUser);
 
             dispatch({ type: "LOGIN_START" });
-            const res = await axios.post("https://booknow-com.onrender.com/api/auth/register",newUser);
-            console.log('res',res);
+            const res = await axios.post(
+                "https://booknow-com.onrender.com/api/auth/register",
+                newUser
+            );
+            console.log("res", res);
             dispatch({ type: "LOGIN_SUCCESS", payload: newUser });
             // localStorage.setItem("user", JSON.stringify(newUser))
             navigate("/");
@@ -44,61 +54,83 @@ const Register = ({ inputs, title }) => {
         }
     };
 
+    const Home = () => {
+        navigate("/");
+    };
+    
+
     return (
-        <div className="new">
+        <div className="register">
+            <header className="register-header">
+                <p onClick={Home}>Booknow.com</p>
+            </header>
+
             <div className="newContainer">
-                <div className="top">
-                    <h1>{title}</h1>
-                </div>
-                <div className="bottom">
-                    <div className="left">
-                        <img
-                            src={
-                                file
-                                    ? URL.createObjectURL(file)
-                                    : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-                            }
-                            alt=""
+                <form>
+                    <div className="header1">
+                        <div className="text">Sign Up</div>
+                        <div className="underline"></div>
+                    </div>
+
+                    <div className="formImg">
+                        <label htmlFor="file">
+                            <img
+                                src={
+                                    file
+                                        ? URL.createObjectURL(file)
+                                        : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+                                }
+                                alt=""
+                            />
+                        </label>
+
+                        <input
+                            type="file"
+                            id="file"
+                            onChange={(e) => setFile(e.target.files[0])}
+                            style={{ display: "none" }}
                         />
                     </div>
-                    <div className="right">
-                        <form>
-                            <div className="formInput">
-                                <label htmlFor="file">
-                                    Image:{" "}
-                                    <DriveFolderUploadOutlinedIcon className="icon" />
-                                </label>
-                                <input
-                                    type="file"
-                                    id="file"
-                                    onChange={(e) => setFile(e.target.files[0])}
-                                    style={{ display: "none" }}
-                                />
-                            </div>
 
+                    <div className="inputs">
+                        <div className="input">
+                            <img src={user_icon} alt="" />
                             <input
                                 onChange={handleChange}
                                 type="username"
-                                placeholder="username"
+                                placeholder="Username"
                                 id="username"
                             />
+                        </div>
+
+                        <div className="input">
+                            <img src={email_icon} alt="" />
                             <input
                                 onChange={handleChange}
                                 type="email"
-                                placeholder="email"
+                                placeholder="Email"
                                 id="email"
                             />
+                        </div>
+
+                        <div className="input">
+                            <img src={password_icon} alt="" />
                             <input
                                 onChange={handleChange}
-                                type="password"
-                                placeholder="password"
+                                type={!toggle ? "password" : "text"}
+                                placeholder="Password"
                                 id="password"
                             />
+                            <img src={!toggle ? hide_icon : show_icon } alt="" onClick={() => setToggle(!toggle)} className="show-password" />
+                        </div>
 
-                            <button onClick={handleClick}>Send</button>
-                        </form>
+                        <button className="submit" onClick={handleClick}>
+                            Sign Up
+                        </button>
+                        {error && <span>{error.message}</span>}
+                        <span className={`${loading ? "loader" : ""}`}></span>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

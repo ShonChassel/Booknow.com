@@ -7,9 +7,16 @@
 }
 
 .user {
+    height: 50px;
     display: flex;
     align-items: center;
     gap: 17px;
+    padding: 0px 5px 0px 5px;
+}
+
+.user:hover {
+    background-color: rgba(255, 255, 255, 0.164);
+    border-radius: 15px;
 }
 
 .userImg {
@@ -38,3 +45,12 @@
     cursor: pointer;
     color: #003580;
 }
+
+.chevron {
+    margin-left: auto;
+    transition: 0.4s;
+}
+
+.user.open .chevron {
+    rotate: -180deg;
+  }
