@@ -7,16 +7,17 @@ import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SimpleImageSlider from "react-simple-image-slider";
+import PayButton from "../PayButton/PayButton";
 
 const ReserveModal = ({ setOpen, hotelId }) => {
     const { data, loading, error } = useFetch(
         `https://booknow-com.onrender.com/api/hotels/rooms/${hotelId}`
     );
     const [selectedRooms, setSelectedRooms] = useState([]);
+    const [roomsOrder, setRoomsOrder] = useState([]);
     const { dates } = useContext(SearchContext);
 
     const getDatesInRange = (startDate, endDate) => {
-
         const start = new Date(startDate);
         const end = new Date(endDate);
         const date = new Date(start.getTime());
@@ -28,7 +29,6 @@ const ReserveModal = ({ setOpen, hotelId }) => {
         }
         return dates;
     };
-
 
     const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
 
@@ -43,11 +43,37 @@ const ReserveModal = ({ setOpen, hotelId }) => {
     const handleSelect = (e) => {
         const isChecked = e.target.checked;
         const value = e.target.value;
-        setSelectedRooms(
+
+        setSelectedRooms((prevSelectedRooms) =>
             isChecked
-                ? [...selectedRooms, value]
-                : selectedRooms.filter((item) => item !== value)
+                ? [...prevSelectedRooms, value]
+                : prevSelectedRooms.filter((item) => item !== value)
         );
+
+        
+        let updatedRoomsOrder = [...roomsOrder];
+
+        if (isChecked) {
+            
+            data.forEach((room1) => {
+                room1.roomNumbers.forEach((room2) => {
+                    if (room2._id === value) {
+                        updatedRoomsOrder = [...updatedRoomsOrder, room1];
+                    }
+                });
+            });
+        } else {
+            
+            updatedRoomsOrder = updatedRoomsOrder.filter((room1) => {
+                return room1.roomNumbers.every((room2) => room2._id !== value);
+            });
+        }
+
+        setRoomsOrder(updatedRoomsOrder);
+
+        if (!isChecked && selectedRooms.length === 1) {
+            setRoomsOrder([]);
+        }
     };
 
     const navigate = useNavigate();
@@ -62,17 +88,17 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                             dates: alldates,
                         }
                     );
+                    console.log("res.data", res.data);
                     return res.data;
                 })
             );
             setOpen(false);
-            navigate("/");
+            // navigate("/");
         } catch (err) {
             console.log(err);
         }
     };
 
-    console.log("photos", data);
     return (
         <div className="reserve">
             <div className="rContainer">
@@ -115,8 +141,11 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                         </div>
                     </div>
                 ))}
-                <button className="rButton" onClick={handleReserve}>
+                {/* <button className="rButton" onClick={handleReserve}>
                     Reserve Now!
+                </button> */}
+                <button className="rButton">
+                    <PayButton cartItems={roomsOrder} />
                 </button>
             </div>
         </div>

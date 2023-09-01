@@ -50,6 +50,7 @@
 .chevron {
     margin-left: auto;
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .user.open .chevron {

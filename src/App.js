@@ -18,6 +18,7 @@ import { DarkModeContext } from "./context/dash/context/darkModeContext";
 import { productInputs, userInputs } from "./formSource";
 import New from "./pages/dashboard/new/New";
 import NewHotel from "./pages/dashboard/newHotel/NewHotel";
+import CheckoutSuccess from "./components/CheckoutSuccess/CheckoutSuccess";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/hotels/:id" element={<Hotel />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/checkout-success" element={<CheckoutSuccess />} />
 
 
         <Route path="/dashboard">

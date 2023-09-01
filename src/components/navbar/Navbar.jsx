@@ -12,8 +12,7 @@ import close from "../../assets/close.svg";
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
     const { user } = useContext(AuthContext);
-    console.log(user);
-
+    
     const navigate = useNavigate();
 
     const Login = () => {

@@ -40,7 +40,6 @@ const Hotel = () => {
         return diffDays;
     }
 
-    console.log("data", data);
     let days;
 
     const setDays = () => {
@@ -83,7 +82,6 @@ const Hotel = () => {
             navigate("/login");
         }
     };
-    console.log("days", days);
     return (
         <div>
             <Navbar />
