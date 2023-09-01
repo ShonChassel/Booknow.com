@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
+  HashRouter,
 } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Hotel from "./pages/hotel/Hotel";
@@ -35,7 +36,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={user ? <Navigate to="/"/> : <Login />} />
@@ -75,7 +76,7 @@ function App() {
 
           </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

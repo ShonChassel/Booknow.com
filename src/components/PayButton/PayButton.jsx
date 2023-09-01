@@ -3,9 +3,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { url } from "../../slice/api";
 import { SearchContext } from "../../context/SearchContext";
+import { useNavigate } from "react-router-dom";
 
 const PayButton = ({ cartItems }) => {
     console.log("cartItems", cartItems);
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const { dates } = useContext(SearchContext);
     const [order, setOrder] = useState();
@@ -46,6 +48,7 @@ const PayButton = ({ cartItems }) => {
                 days,
             })
             .then((response) => {
+                console.log(response.data.url);
                 if (response.data.url) {
                     window.location.href = response.data.url;
                 }
