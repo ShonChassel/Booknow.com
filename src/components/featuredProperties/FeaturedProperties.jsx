@@ -7,6 +7,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 
+
 const FeaturedProperties = () => {
     const [isMobile, setIsMobile] = useState(false);
     let { data, loading, error } = useFetch(
@@ -47,9 +48,11 @@ const FeaturedProperties = () => {
                     {data.map((item) => (
                         <div className="fpItem" key={item._id} onClick={() => {openHotel(item._id);}}> 
                             <img src={item.photos[0]} alt="" className="fpImg"/>
+                            <div className="bottom-container">
                             <span className="fpName">{item.name}</span>
                             <span className="fpCity">{item.city}</span>
                             <span className="fpPrice">Starting from ${item.cheapestPrice}</span>  
+                            </div>
                         </div>
                     ))}
                 

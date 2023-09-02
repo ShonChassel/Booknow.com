@@ -7,6 +7,8 @@ import Navbar from "../../components/navbar/Navbar";
 import PropertyList from "../../components/propertyList/PropertyList";
 import "./home.css";
 
+
+
 const Home = () => {
 
   

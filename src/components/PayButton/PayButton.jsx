@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { url } from "../../slice/api";
 import { SearchContext } from "../../context/SearchContext";
 import { useNavigate } from "react-router-dom";
+import "./PayButton.scss";
 
 const PayButton = ({ cartItems }) => {
     console.log("cartItems", cartItems);
@@ -56,7 +57,7 @@ const PayButton = ({ cartItems }) => {
             .catch((err) => console.log(err.message));
     };
 
-    return <button onClick={() => handleCheckout()}>Check out</button>;
+    return <button className="PayButton" onClick={() => handleCheckout()}>Check out</button>;
 };
 
 export default PayButton;
