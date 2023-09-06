@@ -3,10 +3,7 @@ import Skeleton from "../../components/skeleton/Skeleton";
 import "./featuredProperties.scss";
 import { useHistory, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
-
+import Slider from "react-slick";
 
 const FeaturedProperties = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -21,20 +18,22 @@ const FeaturedProperties = () => {
         navigate(`/hotels/${itemId}`);
     };
 
-    // const handleResize = () => {
-    //     if (window.innerWidth < 720) {
-    //         setIsMobile(true);
-    //     } else {
-    //         setIsMobile(false);
-    //     }
-    //     console.log("isMobile", isMobile);
-    // };
+    const getRandomNumber = () => {
+        const min = 5;
+        const max = 10;
+        const includeDecimal = Math.random() < 0.5;
+        let randomNumber;
 
-    // useEffect(() => {
-    //     window.addEventListener("resize", handleResize);
-    // });
+        if (includeDecimal) {
+            randomNumber = Math.random() * (max - min) + min;
+        } else {
+            randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        var roundedNumber = parseFloat(randomNumber.toFixed(1));
+        return roundedNumber;
 
-    
+    };
+
     
 
     console.log("data", data);
@@ -44,18 +43,29 @@ const FeaturedProperties = () => {
                 <Skeleton />
             ) : (
                 <>
-                
                     {data.map((item) => (
-                        <div className="fpItem" key={item._id} onClick={() => {openHotel(item._id);}}> 
-                            <img src={item.photos[0]} alt="" className="fpImg"/>
+                        <div
+                            className="fpItem"
+                            key={item._id}
+                            onClick={() => {
+                                openHotel(item._id);
+                            }}
+                        >
+                            <img
+                                src={item.photos[0]}
+                                alt=""
+                                className="fpImg"
+                            />
                             <div className="bottom-container">
-                            <span className="fpName">{item.name}</span>
-                            <span className="fpCity">{item.city}</span>
-                            <span className="fpPrice">Starting from ${item.cheapestPrice}</span>  
+                                <span className="fpName">{item.name}</span>
+                                <span className="fpCity">{item.city}</span>
+                                <div className="price-container">
+                                <span className="fpPrice">Starting from ${item.cheapestPrice}</span>
+                                <span className="fpRating">{getRandomNumber()}</span>
+                                </div>
                             </div>
                         </div>
                     ))}
-                
                 </>
             )}
         </div>

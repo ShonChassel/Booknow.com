@@ -107,3 +107,10 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+
+@media (max-width: 600px) {
+  .siFeatures{
+    display: none;
+  }
+}

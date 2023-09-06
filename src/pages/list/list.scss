@@ -81,3 +81,10 @@
 .listResult {
   flex: 3;
 }
+
+
+@media (max-width: 600px) {
+  .listSearch{
+    display: none;
+  }
+}

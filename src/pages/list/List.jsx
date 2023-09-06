@@ -1,4 +1,4 @@
-import "./list.css";
+import "./list.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { useLocation } from "react-router-dom";
@@ -23,7 +23,7 @@ const handleClick = () => {
   reFetch()
 }
 
-console.log('data',data);
+
   return (
     <div>
       <Navbar />
@@ -34,7 +34,7 @@ console.log('data',data);
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" />
+              <input placeholder={destination} type="text" onChange={(event) => setDestination(event.target.value)} />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>

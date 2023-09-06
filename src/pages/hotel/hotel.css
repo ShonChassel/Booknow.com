@@ -150,3 +150,10 @@
   color: lightgray;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .sliderImg{
+    width: 37vh;
+    height: 37vh;
+  }
+}

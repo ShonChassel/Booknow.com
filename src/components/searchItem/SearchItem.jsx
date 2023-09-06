@@ -2,6 +2,18 @@ import { Link } from "react-router-dom";
 import "./searchItem.css";
 
 const SearchItem = ({item}) => {
+
+  const ShortenString = (inputString, maxLength) => {
+    maxLength = 150
+    if (inputString.length <= maxLength) {
+      return inputString;
+    } else {
+   
+      return inputString.slice(0, maxLength) ;
+    }
+  }
+  
+
   return (
     <div className="searchItem">
       <img
@@ -16,7 +28,7 @@ const SearchItem = ({item}) => {
         <span className="siSubtitle">
           Studio Apartment with Air conditioning
         </span>
-        <span className="siFeatures"> {item.desc}</span>
+        <span className="siFeatures"> {ShortenString(item.desc,50)}...</span>
         <span className="siCancelOp">Free cancellation </span>
         <span className="siCancelOpSubtitle">
           You can cancel later, so lock in this great price today!
