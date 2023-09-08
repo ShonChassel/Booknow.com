@@ -1,3 +1,4 @@
+import Chat from "../../components/Chat/Chat";
 import Featured from "../../components/featured/Featured";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 import Footer from "../../components/footer/Footer";
@@ -14,6 +15,7 @@ const Home = () => {
   
   return (
     <div>
+      <Chat/>
       <Navbar />
       <Header/>
       <div className="homeContainer">

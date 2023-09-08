@@ -1,8 +1,18 @@
+@font-face {
+    font-family: "YourFontFamily"; // Replace with your desired font name
+    src: url("../../assets/blink/SignikaNegative-Regular.ttf")
+        format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-stack: "YourFontFamily", Arial, sans-serif;
+
 .dropDownProfile {
     position: absolute;
     top: 3.4rem;
     right: -0.5rem;
-    width: 134px;
+    width: 155px;
     // padding: 15px;
     border-radius: 15px;
     background-color: white;
@@ -15,17 +25,26 @@
         button {
             display: flex;
             flex-direction: row;
-            margin: 15px;
+            align-items: center;
             background: #f0f8ff00;
             border: 0;
             font-family: system-ui;
             font-size: 14px;
-            gap: 5px;
-
-            img{
+            gap: 10px;
+            // font-family: $font-stack;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            position: relative;
+            z-index: 4;
+            img {
                 height: 20px;
-                
             }
+        }
+        button:hover {
+            background-color: rgba(144, 161, 161, 0.233);
+            border-radius: 15px;
         }
     }
 }

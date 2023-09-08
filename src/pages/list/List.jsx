@@ -34,7 +34,7 @@ const handleClick = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" onChange={(event) => setDestination(event.target.value)} />
+              <input  placeholder={destination} type="text" onChange={(event) => setDestination(event.target.value)} />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>

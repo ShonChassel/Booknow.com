@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./searchItem.css";
+import Free from "../../assets/free.svg";
 
 const SearchItem = ({item}) => {
 
@@ -29,7 +30,7 @@ const SearchItem = ({item}) => {
           Studio Apartment with Air conditioning
         </span>
         <span className="siFeatures"> {ShortenString(item.desc,50)}...</span>
-        <span className="siCancelOp">Free cancellation </span>
+        <span className="siCancelOp"><img src={Free} alt="" />Free cancellation </span>
         <span className="siCancelOpSubtitle">
           You can cancel later, so lock in this great price today!
         </span>

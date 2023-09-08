@@ -1,4 +1,4 @@
-import "./hotel.css";
+import "./hotel.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import MailList from "../../components/mailList/MailList";
@@ -16,6 +16,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import ReserveModal from "../../components/reserveModal/ReserveModal";
+
+import Concierge from "../../assets/hotelIcons/Concierge.svg";
+import Hour from "../../assets/hotelIcons/24-hour.svg";
+import Airport from "../../assets/hotelIcons/Airport.svg";
+import Business from "../../assets/hotelIcons/Business.svg";
+import Designated from "../../assets/hotelIcons/Designated.svg";
+import Facilities from "../../assets/hotelIcons/Facilities.svg";
+import Ironing from "../../assets/hotelIcons/Ironing.svg";
+import Room from "../../assets/hotelIcons/Room.svg";
+import Snack from "../../assets/hotelIcons/Snack.svg";
 
 const Hotel = () => {
     const location = useLocation();
@@ -53,7 +63,6 @@ const Hotel = () => {
         }
 
         days = dayDifference(dates[0].endDate, dates[0].startDate);
-        
     };
 
     setDays();
@@ -82,6 +91,9 @@ const Hotel = () => {
             navigate("/login");
         }
     };
+
+    console.log("days", days);
+    console.log("data.cheapestPrice", data.cheapestPrice);
     return (
         <div>
             <Navbar />
@@ -148,17 +160,38 @@ const Hotel = () => {
                             <div className="hotelDetailsTexts">
                                 <h1 className="hotelTitle">{data.title}</h1>
                                 <p className="hotelDesc">{data.desc}</p>
+                                <div className="facilities">
+                                    <p>Most popular facilities</p>
+                                    
+                                    <div className="facilities-img">
+                                        <div><img src={Concierge} alt="" />Concierge</div>
+                                        <div><img src={Business} alt="" />Business center</div>
+                                        <div><img src={Room} alt="" />Room service</div>
+                                        <div><img src={Snack} alt="" />Snack bar</div>
+                                        <div><img src={Hour} alt="" />24-hour security</div>
+                                        <div><img src={Airport} alt="" />Airport shuttle</div>
+                                        <div><img src={Designated} alt="" />Designated smoking area</div>
+                                        <div><img src={Facilities} alt="" />Facilities for disabled guests</div>
+                                        <div><img src={Ironing} alt="" />Ironing service</div>
+                                    </div>
+                                </div>
                             </div>
                             <div className="hotelDetailsPrice">
-                                <h1>Perfect for a {days}-night stay!</h1>
+                                <h1>Perfect for a {days === 0 || "NaN" ? 1 : days}-night stay!</h1>
                                 <span>
                                     Located in the real heart of Krakow, this
                                     property has an excellent location score of
                                     9.8!
                                 </span>
                                 <h2>
-                                    <b>${days === 0 ? data.cheapestPrice :
-                                     days* data.cheapestPrice * options.room}</b>{" "}
+                                    <b>
+                                        $
+                                        {days === 0 
+                                            ? data.cheapestPrice
+                                            : days *
+                                              data.cheapestPrice *
+                                              options.room}
+                                    </b>{" "}
                                     ({days === 0 ? 1 : days} nights)
                                 </h2>
                                 <button onClick={handleClick}>

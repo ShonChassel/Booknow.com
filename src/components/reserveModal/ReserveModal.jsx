@@ -9,6 +9,12 @@ import { useNavigate } from "react-router-dom";
 import SimpleImageSlider from "react-simple-image-slider";
 import PayButton from "../PayButton/PayButton";
 
+import Air from "../../assets/roomIcons/Air.svg";
+import Flat from "../../assets/roomIcons/Flat-screen.svg";
+import FreeWiFi from "../../assets/roomIcons/FreeWiFi.svg";
+import Private from "../../assets/roomIcons/Private.svg";
+import Terrace from "../../assets/roomIcons/Terrace.svg";
+
 const ReserveModal = ({ setOpen, hotelId }) => {
     const { data, loading, error } = useFetch(
         `https://booknow-com.onrender.com/api/hotels/rooms/${hotelId}`
@@ -120,11 +126,18 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                         />
                         <div className="rItemInfo">
                             <div className="rTitle">{item.title}</div>
+                            <div className="rIcons">
+                                <div><img src={Air} alt=""/>Air conditioning</div>
+                                <div><img src={Private} alt=""/>Private Bathroom</div>
+                                <div><img src={Air} alt=""/>Flat-screen TV</div>
+                                <div><img src={Air} alt=""/>Terrace</div>
+                                <div><img src={FreeWiFi} alt=""/>Free WiFi</div>
+                            </div>
                             <div className="rDesc">{item.desc}</div>
                             <div className="rMax">
                                 Max people: <b>{item.maxPeople}</b>
                             </div>
-                            <div className="rPrice">{item.price}</div>
+                            <div className="rPrice">{item.price}$</div>
                         </div>
                         <div className="rSelectRooms">
                             {item.roomNumbers.map((roomNumber) => (
