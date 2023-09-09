@@ -1,8 +1,8 @@
 import "./single.scss";
-import Sidebar from "../../../dashCmp/components/sidebar/Sidebar";
-import Navbar from "../../../dashCmp/components/navbar/Navbar";
-import Chart from "../../../dashCmp/components/chart/Chart";
-import List from "../../../dashCmp/components/table/Table";
+import Sidebar from "../../../dashCmp/sidebar/Sidebar";
+import Navbar from "../../../dashCmp/navbar/Navbar";
+import Chart from "../../../dashCmp/chart/Chart";
+import List from "../../../dashCmp/table/Table";
 
 const Single = () => {
   return (

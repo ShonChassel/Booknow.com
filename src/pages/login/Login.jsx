@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
+import { api } from "../../slice/api";
 
 import Google from "../../assets/google.png";
 import Facebook from "../../assets/facebook.png";
@@ -76,7 +77,7 @@ const Login = () => {
                     </div>
                 </div>
 
-                <div className="center">
+                <div className="center-line">
                     <div className="line" />
                     <div className="or">OR</div>
                 </div>

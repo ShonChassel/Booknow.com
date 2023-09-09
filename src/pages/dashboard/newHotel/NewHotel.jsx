@@ -1,6 +1,6 @@
 import "./newHotel.scss";
-import Sidebar from "../../../dashCmp/components/sidebar/Sidebar";
-import Navbar from "../../../dashCmp/components/navbar/Navbar";
+import Sidebar from "../../../dashCmp/sidebar/Sidebar";
+import Navbar from "../../../dashCmp/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { hotelInputs } from "../../../formSource";

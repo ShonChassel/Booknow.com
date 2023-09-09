@@ -28,6 +28,9 @@
     align-items: center;
     gap: 50px;
     padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom:8px;
 
     img {
         height: 137px;
@@ -116,6 +119,10 @@
 .rItem {
     img {
         height: 54px;
+        border-radius: 14px !important;
+    }
+    :nth-child(1) {
+        border-radius: 14px !important;
     }
     :nth-child(2) {
         left: 4px !important;
@@ -132,4 +139,8 @@
             width: 11px !important;
         }
     }
+}
+
+.rsis-container{
+    
 }

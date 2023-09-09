@@ -12,19 +12,20 @@ import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSyst
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
-import { DarkModeContext } from "../../../context/dash/context/darkModeContext";
+import { DarkModeContext } from "../../context/dash/context/darkModeContext";
 import { useContext } from "react";
-import { AuthContext } from "../../../context/dash/context/AuthContext";
+import { AuthContext } from "../../context/dash/context/AuthContext";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
 
   const { user } = useContext(AuthContext)
 
+  
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/dashboard" style={{ textDecoration: "none" }}>
           <span className="logo">{user.username}</span>
         </Link>
       </div>
@@ -37,7 +38,7 @@ const Sidebar = () => {
             <span>Dashboard</span>
           </li>
           <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/dashboard/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Users</span>

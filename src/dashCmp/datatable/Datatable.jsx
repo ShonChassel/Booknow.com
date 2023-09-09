@@ -5,19 +5,25 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import { api } from "../../slice/api";
+
 
 const Datatable = ({ columns = [] }) => {
     const location = useLocation();
-    const path = location.pathname.split("/")[1];
+    const path = location.pathname.split("/")[2];
 
+    console.log('path',path);
+    
     const [list, setList] = useState([]);
-    const { data, loading, error } = useFetch(`/${path}`);
+    const { data, loading, error } = useFetch(`${api}/${path}`);
+    
+    console.log('data',data);
 
-    useEffect(() => {
-        if (data) {
-            setList(data);
-        }
-    }, [data]);
+    // useEffect(() => {
+    //     if (data) {
+    //         setList(data);
+    //     }
+    // }, [data]);
 
     
 
@@ -53,6 +59,8 @@ const Datatable = ({ columns = [] }) => {
             },
         },
     ];
+
+
     return (
         <div className="datatable">
             <div className="datatableTitle">

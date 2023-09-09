@@ -19,12 +19,16 @@ const UserModal = () => {
         navigate(`/`);
     };
 
+    const goDashboard = () => {
+        navigate(`/dashboard`);
+    };
+
 
 
     return (
         <div className="dropDownProfile">
             <div className="dropDown-container">
-                <button>
+                <button onClick={goDashboard}>
                 <img src={dashboard} alt="" />
                     Dashboard
                     </button>
