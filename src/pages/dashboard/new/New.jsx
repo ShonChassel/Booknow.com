@@ -32,8 +32,8 @@ const New = ({ inputs, title }) => {
                 img: url,
             };
 
-            await axios.post("/auth/register", newUser);
-            
+            await axios.post("https://booknow-com.onrender.com/api/auth/register", newUser);
+            <Navigate to="/dashboard/users" />;
         } catch (err) {
             console.log(err);
         }

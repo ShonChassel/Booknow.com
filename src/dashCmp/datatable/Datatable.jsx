@@ -19,17 +19,17 @@ const Datatable = ({ columns = [] }) => {
     
     console.log('data',data);
 
-    // useEffect(() => {
-    //     if (data) {
-    //         setList(data);
-    //     }
-    // }, [data]);
+    useEffect(() => {
+        if (data) {
+            setList(data);
+        }
+    }, [data]);
 
     
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`/${path}/${id}`);
+            await axios.delete(`https://booknow-com.onrender.com/api/${path}/${id}`);
             setList(list.filter((item) => item._id !== id));
         } catch (err) {}
     };
@@ -65,7 +65,7 @@ const Datatable = ({ columns = [] }) => {
         <div className="datatable">
             <div className="datatableTitle">
                 {path}
-                <Link to={`/${path}/new`} className="link">
+                <Link to={`/dashboard/${path}/new`} className="link">
                     Add New
                 </Link>
             </div>
