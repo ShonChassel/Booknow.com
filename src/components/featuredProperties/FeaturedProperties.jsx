@@ -8,7 +8,7 @@ import "react-multi-carousel/lib/styles.css";
 
 const FeaturedProperties = () => {
     const [isMobile, setIsMobile] = useState(false);
-    let { data, loading, error } = useFetch("https://booknow-com.onrender.com/api/hotels?featured=true");
+    let { data, loading, error } = useFetch("https://booknow-com.onrender.com/api/hotels?featured=true",);
 
     data = data.slice(0, 4);
 

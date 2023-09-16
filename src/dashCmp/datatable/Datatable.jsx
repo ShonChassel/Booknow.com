@@ -5,8 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
-import { api } from "../../slice/api";
-
+import { api,url } from "../../slice/api";
 
 const Datatable = ({ columns = [] }) => {
     const location = useLocation();
@@ -29,7 +28,7 @@ const Datatable = ({ columns = [] }) => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://booknow-com.onrender.com/api/${path}/${id}`);
+            await axios.delete(`${api}/${path}/${id}`);
             setList(list.filter((item) => item._id !== id));
         } catch (err) {}
     };

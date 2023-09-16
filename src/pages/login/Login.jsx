@@ -1,9 +1,10 @@
 import axios from "axios";
+
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
-import { api } from "../../slice/api";
+import { api,url } from "../../slice/api";
 
 import Google from "../../assets/google.png";
 import Facebook from "../../assets/facebook.png";
@@ -13,6 +14,9 @@ import user_icon from "../../assets/person.png";
 import password_icon from "../../assets/password.png";
 import show_icon from "../../assets/show.svg";
 import hide_icon from "../../assets/hide.svg";
+
+
+
 
 const Login = () => {
     const [toggle, setToggle] = useState(false);
@@ -34,8 +38,8 @@ const Login = () => {
         e.preventDefault();
         dispatch({ type: "LOGIN_START" });
         try {
-            const res = await axios.post("https://booknow-com.onrender.com/api/auth/login",credentials);
-
+            const res = await axios.post(`${url}/auth/login`,credentials,);
+            
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
             navigate("/");
         } catch (err) {

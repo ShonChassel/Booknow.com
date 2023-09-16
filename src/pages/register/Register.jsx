@@ -4,12 +4,15 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { api,url } from "../../slice/api";
 
 import user_icon from "../../assets/person.png";
 import email_icon from "../../assets/email.png";
 import password_icon from "../../assets/password.png";
 import show_icon from "../../assets/show.svg";
 import hide_icon from "../../assets/hide.svg";
+
+// axios.defaults.withCredentials = true
 
 const Register = ({ inputs, title }) => {
     const navigate = useNavigate();
@@ -26,28 +29,29 @@ const Register = ({ inputs, title }) => {
     const handleClick = async (e) => {
         e.preventDefault();
         const data = new FormData();
+        
         data.append("file", file);
         data.append("upload_preset", "upload");
+
         dispatch({ type: "LOGIN_START" });
         try {
-            const uploadRes = await axios.post(
-                "https://api.cloudinary.com/v1_1/dirvusyaz/image/upload",
-                data
-            );
+            
+            const uploadRes = await fetch('https://api.cloudinary.com/v1_1/dirvusyaz/image/upload',{
+                method: 'POST',
+                body: data
+            }).then(r => r.json())
 
-            const { url } = uploadRes.data;
+        
+            const { url } = uploadRes;
+            
 
             const newUser = { ...info, img: url };
-            console.log(newUser);
 
             dispatch({ type: "LOGIN_START" });
-            const res = await axios.post(
-                "https://booknow-com.onrender.com/api/auth/register",
-                newUser
-            );
-            console.log("res", res);
+            const res = await axios.post(`https://booknow-com.onrender.com/api/auth/register`, newUser,{withCredentials: true,});
+            
             dispatch({ type: "LOGIN_SUCCESS", payload: newUser });
-            // localStorage.setItem("user", JSON.stringify(newUser))
+            localStorage.setItem("user", JSON.stringify(newUser))
             navigate("/");
         } catch (err) {
             console.log(err);
