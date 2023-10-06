@@ -11,7 +11,7 @@ BookNow is a property & hotels rental App.
 <br/>
 :link: Link to the live project: [Link](https://booknow1-com.onrender.com/)  
 <br/>
-<img src='https://res.cloudinary.com/dirvusyaz/image/upload/v1693346175/3_xxxrkx.png'/>
+<img src='https://res.cloudinary.com/dirvusyaz/image/upload/v1696611854/3_xftplv.png'/>
 <br/>
 
 ## My Process:

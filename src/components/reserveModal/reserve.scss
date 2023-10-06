@@ -14,22 +14,31 @@
     background-color: white;
     padding: 20px;
     position: relative;
+    padding-top: 45px;
+    border-radius: 15px;
 }
 
 .rClose {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 8px;
+    right: 8px;
     cursor: pointer;
+    height: 24px;
+    width: 25px;
+    border: 1px solid gray;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .rItem {
     display: flex;
     align-items: center;
     gap: 50px;
-    padding: 20px;
+    //padding: 20px;//
     border: 1px solid lightgray;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-bottom:8px;
 
     img {
@@ -43,19 +52,22 @@
         .rIcons {
             display: flex;
             align-items: center;
-            justify-content: center;
+           // justify-content: center;//
             gap: 17px;
             div {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                gap: 5px;
             }
         }
     }
 }
 
 .rItem:hover{
-    background-color: #dce5ec54;
+    background: #f0f6ff;
+    box-shadow: 0 0 8px #a3d7fc;
+    border-color: #a3d7fc;
 }
 
 .rInfo {
@@ -120,9 +132,11 @@
     img {
         height: 54px;
         border-radius: 14px !important;
+        
     }
     :nth-child(1) {
-        border-radius: 14px !important;
+      //  border-radius: 14px !important;//
+      border-radius: 15px 0px 0px 15px !important;
     }
     :nth-child(2) {
         left: 4px !important;

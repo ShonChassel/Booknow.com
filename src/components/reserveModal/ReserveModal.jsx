@@ -108,12 +108,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
     return (
         <div className="reserve">
             <div className="rContainer">
-                <FontAwesomeIcon
-                    icon={faCircleXmark}
-                    className="rClose"
-                    onClick={() => setOpen(false)}
-                />
-                <span>Select your rooms:</span>
+                <div onClick={() => setOpen(false)} className="rClose" >X</div>
                 {data.map((item) => (
                     <div className="rItem" key={item._id}>
                         {/* <img src={item.photos[1]} alt="" /> */}
@@ -129,7 +124,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                             <div className="rIcons">
                                 <div><img src={Air} alt=""/>Air conditioning</div>
                                 <div><img src={Private} alt=""/>Private Bathroom</div>
-                                <div><img src={Air} alt=""/>Flat-screen TV</div>
+                                <div><img src={Flat} alt=""/>Flat-screen TV</div>
                                 <div><img src={Air} alt=""/>Terrace</div>
                                 <div><img src={FreeWiFi} alt=""/>Free WiFi</div>
                             </div>

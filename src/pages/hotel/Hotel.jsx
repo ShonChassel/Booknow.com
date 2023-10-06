@@ -92,8 +92,7 @@ const Hotel = () => {
         }
     };
 
-    console.log("days", days);
-    console.log("data.cheapestPrice", data.cheapestPrice);
+    
     return (
         <div>
             <Navbar />
