@@ -12,6 +12,7 @@ import PayButton from "../PayButton/PayButton";
 import Air from "../../assets/roomIcons/Air.svg";
 import Flat from "../../assets/roomIcons/Flat-screen.svg";
 import FreeWiFi from "../../assets/roomIcons/FreeWiFi.svg";
+import MiniBar from "../../assets/roomIcons/MiniBar.svg";
 import Private from "../../assets/roomIcons/Private.svg";
 import Terrace from "../../assets/roomIcons/Terrace.svg";
 
@@ -50,6 +51,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
         const isChecked = e.target.checked;
         const value = e.target.value;
 
+        console.log(value,value);
         setSelectedRooms((prevSelectedRooms) =>
             isChecked
                 ? [...prevSelectedRooms, value]
@@ -110,7 +112,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
             <div className="rContainer">
                 <div onClick={() => setOpen(false)} className="rClose" >X</div>
                 {data.map((item) => (
-                    <div className="rItem" key={item._id}>
+                    <div className="rItem" key={item._id} onClick={handleSelect}>
                         {/* <img src={item.photos[1]} alt="" /> */}
                         <SimpleImageSlider
                             width={300}
@@ -125,7 +127,7 @@ const ReserveModal = ({ setOpen, hotelId }) => {
                                 <div><img src={Air} alt=""/>Air conditioning</div>
                                 <div><img src={Private} alt=""/>Private Bathroom</div>
                                 <div><img src={Flat} alt=""/>Flat-screen TV</div>
-                                <div><img src={Air} alt=""/>Terrace</div>
+                                <div><img src={MiniBar} alt=""/>Bathroom</div>
                                 <div><img src={FreeWiFi} alt=""/>Free WiFi</div>
                             </div>
                             <div className="rDesc">{item.desc}</div>
