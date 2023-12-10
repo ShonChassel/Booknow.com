@@ -1,0 +1,166 @@
+.reserve {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.418);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+    padding-top: 45px;
+    border-radius: 15px;
+}
+
+.rClose {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    height: 24px;
+    width: 25px;
+    border: 1px solid gray;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rItem {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    //padding: 20px;//
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    margin-bottom:8px;
+
+    img {
+        height: 137px;
+        border-radius: 8px;
+    }
+    .rItemInfo {
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        .rIcons {
+            display: flex;
+            align-items: center;
+           // justify-content: center;//
+            gap: 17px;
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+            }
+        }
+    }
+}
+
+.rItem:hover{
+    background: #f0f6ff;
+    box-shadow: 0 0 8px #a3d7fc;
+    border-color: #a3d7fc;
+}
+
+.rInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rTitle {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.rIcons {
+    div {
+        font-size: 12px;
+        img {
+            height: 15px;
+            width: 16px;
+        }
+    }
+}
+
+.rDesc {
+    font-weight: 300;
+}
+
+.rMax {
+    font-size: 12px;
+}
+
+.rPrice {
+    font-weight: 500;
+}
+
+.rSelectRooms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 8px;
+    color: gray;
+}
+
+.room {
+    display: flex;
+    flex-direction: column;
+}
+
+.rButton {
+    border: none;
+    padding: 10px 20px;
+    background-color: #0071c2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 20%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rItem {
+    img {
+        height: 54px;
+        border-radius: 14px !important;
+        
+    }
+    :nth-child(1) {
+      //  border-radius: 14px !important;//
+      border-radius: 15px 0px 0px 15px !important;
+    }
+    :nth-child(2) {
+        left: 4px !important;
+    }
+
+    button {
+        right: 4px !important;
+        width: 28px !important;
+    }
+
+    :nth-child(4) {
+        button {
+            height: 10px !important;
+            width: 11px !important;
+        }
+    }
+}
+
+.rsis-container{
+    
+}

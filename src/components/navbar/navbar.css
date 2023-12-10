@@ -1,0 +1,58 @@
+.navbar {
+    height: 50px;
+    /* background-color: #003580; */
+    background-color: #003b95;
+    display: flex;
+    justify-content: center;
+}
+
+.user {
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 0px 5px 0px 5px;
+}
+
+.user:hover {
+    background-color: rgba(255, 255, 255, 0.164);
+    border-radius: 15px;
+}
+
+.userImg {
+    height: 35px;
+    border-radius: 70px;
+}
+
+.navContainer {
+    width: 100%;
+    max-width: 1024px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.navButton {
+    margin-left: 20px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #003580;
+}
+
+.chevron {
+    margin-left: auto;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.user.open .chevron {
+    rotate: -180deg;
+  }
