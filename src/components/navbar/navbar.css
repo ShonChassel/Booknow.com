@@ -1,7 +1,14 @@
 @font-face {
     font-family: 'Auro';
-    src: url(../../assets/blink/Auro-Bold.otf);
+    src: url("../../assets/Auro_family_otf/Auro-Medium.otf") format("opentype");
 }
+
+.logo {
+    font-size: 27px;
+    font-weight: 500;
+    font-family: 'Auro'; 
+}
+
 
 .navbar {
     height: 50px;
@@ -39,11 +46,7 @@
     justify-content: space-between;
 }
 
-.logo {
-    font-size: 23px;
-    font-weight: 700;
-    font-family: url(../../assets/blink/Auro-Bold.otf), !important;
-}
+
 
 .navButton {
     margin-left: 20px;
