@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
-import { api,url } from "../../slice/api";
+import { api, url } from "../../slice/api";
 
 import Google from "../../assets/google.png";
 import Facebook from "../../assets/facebook.png";
@@ -15,8 +15,6 @@ import password_icon from "../../assets/password.png";
 import show_icon from "../../assets/show.svg";
 import hide_icon from "../../assets/hide.svg";
 
-
-// axios.defaults.withCredentials = true
 
 const Login = () => {
     const [toggle, setToggle] = useState(false);
@@ -38,8 +36,8 @@ const Login = () => {
         e.preventDefault();
         dispatch({ type: "LOGIN_START" });
         try {
-            const res = await axios.post(`${url}/auth/login`,credentials,);
-            
+            const res = await axios.post(`${url}/auth/login`, credentials,);
+
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
             navigate("/");
         } catch (err) {
@@ -48,12 +46,11 @@ const Login = () => {
         }
     };
 
-    const google = () => {
-        window.open("http://localhost:8800/api/auth/google", "_self");
-    };
-
     const Home = () => {
         navigate("/");
+    };
+    const Register = () => {
+        navigate("/register");
     };
 
     return (
@@ -62,47 +59,19 @@ const Login = () => {
                 <p onClick={Home}>Booknow.com</p>
             </header>
 
-            <h1 className="loginTitle"> Login </h1>
-            <div className="wrap">
-                <div className="left">
-                    <div className="loginButton google" onClick={google}>
-                        <img src={Google} alt="" className="icon" />
-                        Google
-                    </div>
-                    <div className="loginButton facebook">
-                        <img src={Facebook} alt="" className="icon" />
-                        Facebook
-                    </div>
-                    <div className="loginButton github">
-                        <img src={Github} alt="" className="icon" />
-                        Github
-                    </div>
-                </div>
 
-                <div className="center-line">
-                    <div className="line" />
-                    <div className="or">OR</div>
-                </div>
+            <div className="wrapper">
+                <form action="">
+                    <h1>Login</h1>
 
-                <div className="right">
-                    <div className="input">
+                    <div className="input-box">
                         <img src={user_icon} alt="" />
-                        <input
-                            onChange={handleChange}
-                            type="username"
-                            placeholder="Username"
-                            id="username"
-                        />
+                        <input type="text" onChange={handleChange} id="username" placeholder="Username" required />
                     </div>
 
-                    <div className="input">
+                    <div className="input-box">
                         <img src={password_icon} alt="" />
-                        <input
-                            onChange={handleChange}
-                            type={!toggle ? "password" : "text"}
-                            placeholder="Password"
-                            id="password"
-                        />
+                        <input type={!toggle ? "password" : "text"} onChange={handleChange} id="password" placeholder="Password" required />
                         <img
                             src={!toggle ? hide_icon : show_icon}
                             alt=""
@@ -110,13 +79,30 @@ const Login = () => {
                             className="show-password"
                         />
                     </div>
-                    <button className="submit" onClick={handleClick}>
+
+                    <div className="remember-forgot">
+                        <label>
+                            <input type="checkbox" />
+                            Remember me
+                        </label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" className="btn" onClick={handleClick}>
                         Login
                     </button>
+
+                    <div className="register-link">
+                        <p>Don't have an account? <a onClick={Register}>Register</a></p>
+
+                    </div>
                     {error && <span>{error.message}</span>}
                     <span className={`${loading ? "loader" : ""}`}></span>
-                </div>
+                </form>
+
+
             </div>
+
         </div>
     );
 };

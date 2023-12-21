@@ -1,0 +1,62 @@
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    border-radius: 10px;
+}
+
+.skeleton-box {
+    padding-top: 5px;
+}
+
+.img-skeleton {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+.skeleton-txt {
+    height: 20px;
+    border-radius: 3px;
+    border-radius: 8px;
+
+    &.skeleton-name {
+        width: 55%;
+    }
+    &.skeleton-rate {
+        width: 16%;
+    }
+    &.skeleton-desc {
+        width: 35%;
+    }
+    &.skeleton-date {
+        width: 25%;
+    }
+    &.skeleton-price {
+        width: 23%;
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(0, 0%, 72%);
+    }
+    100% {
+        background-color: hsl(0, 0%, 92%);
+    }
+}
+
+.searchItem {
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.siImg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+

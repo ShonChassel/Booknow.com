@@ -55,9 +55,9 @@ const {dispatch} = useContext(SearchContext)
     dispatch({type: "NEW_SEARCH", payload: {destination, dates, options}})
     navigate("/hotels", { state: { destination, dates, options } });
   };
-
+console.log('type',type)
   return (
-    <div className="header">
+    <div className={type === "list" ? 'headerToogle' : 'header'}>
       <div
         className={
           type === "list" ? "headerContainer listMode" : "headerContainer"
@@ -99,7 +99,7 @@ const {dispatch} = useContext(SearchContext)
               Get rewarded for your travels – unlock instant savings of 10% or
               more with a free account
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && <button className="headerLogBtn">Sign in / Register</button>}
 
             <div className="headerSearch">
 

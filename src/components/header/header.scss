@@ -1,10 +1,21 @@
 .header {
-    // background-color: #003580;
-    background-color: #003b95;
+    // background-color: #003b95;
+    background-image: url('https://res.cloudinary.com/dirvusyaz/image/upload/v1703159337/kevrlh9fb6re5j8tsgwg.jpg');
     color: white;
     display: flex;
     justify-content: center;
     position: relative;
+    background-repeat: round;
+}
+
+.headerToogle{
+   background-color: #003b95;
+  
+   color: white;
+   display: flex;
+   justify-content: center;
+   position: relative;
+   background-repeat: round; 
 }
 
 .headerContainer {
@@ -164,6 +175,14 @@
 
 .optionCounterButton:disabled {
     cursor: not-allowed;
+}
+
+.headerLogBtn{
+    margin-left: 20px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #006CE4;
 }
 
 @media (max-width: 600px) {
