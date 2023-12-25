@@ -5,12 +5,12 @@ import { useHistory, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Carousel } from "@trendyol-js/react-carousel";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const FeaturedProperties = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isWidth, setIsWidth] = useState(3);
   let { data, loading, error } = useFetch(
     "https://booknow-com.onrender.com/api/hotels?featured=true"
   );
@@ -37,23 +37,22 @@ const FeaturedProperties = () => {
     return roundedNumber;
   };
 
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-  };
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setIsWidth(1);
+    }
+  }, []);
 
-  console.log("data", data);
+//   console.log("isWidth", isWidth);
   return (
     <div className="fp">
       {loading ? (
         <Skeleton />
       ) : (
-        <Carousel 
-          rightArrow={<FontAwesomeIcon icon={faArrowRight}/>}
-          leftArrow={<FontAwesomeIcon icon={faArrowLeft}/>}
-          show={3}
+        <Carousel
+          rightArrow={<FontAwesomeIcon icon={faArrowRight} />}
+          leftArrow={<FontAwesomeIcon icon={faArrowLeft} />}
+          show={isWidth}
           slide={1}
           transition={0.9}
           swiping={true}

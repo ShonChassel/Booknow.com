@@ -65,27 +65,22 @@ console.log('type',type)
       >
         <div className="headerList">
           <div className="headerListItem active">
-            {/* <FontAwesomeIcon icon={faBed} /> */}
             <img src={stays} alt="" />
             <span>Stays</span>
           </div>
           <div className="headerListItem">
-            {/* <FontAwesomeIcon icon={faPlane} /> */}
             <img src={flights} alt="" />
             <span>Flights</span>
           </div>
           <div className="headerListItem">
-            {/* <FontAwesomeIcon icon={faCar} /> */}
             <img src={car} alt="" />
             <span>Car rentals</span>
           </div>
           <div className="headerListItem">
-            {/* <FontAwesomeIcon icon={faBed} /> */}
             <img src={attractions} alt="" />
             <span>Attractions</span>
           </div>
           <div className="headerListItem">
-            {/* <FontAwesomeIcon icon={faTaxi} /> */}
             <img src={taxis} alt="" />
             <span>Airport taxis</span>
           </div>
@@ -104,7 +99,6 @@ console.log('type',type)
             <div className="headerSearch">
 
               <div className="headerSearchItem">
-                {/* <FontAwesomeIcon icon={faBed} className="headerIcon" /> */}
                 <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1692635989/where_lmkctf.svg" alt="" className="headerIcon"/>
                 <input
                   type="text"
@@ -115,7 +109,6 @@ console.log('type',type)
               </div>
 
               <div className="headerSearchItem">
-                {/* <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" /> */}
                 <img src="https://res.cloudinary.com/dirvusyaz/image/upload/v1692636314/Days_atamoj.svg" alt="" className="headerIcon"/>
                 <span
                   onClick={() => setOpenDate(!openDate)}

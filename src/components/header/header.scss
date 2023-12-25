@@ -73,17 +73,17 @@
         padding-left: 8px;
     }
 
-    :nth-child(2) {
+    .headerSearchItem:nth-child(2) {
         border-left: none;
         border-radius: 0px;
     }
 
-    :nth-child(3) {
+    .headerSearchItem:nth-child(3) {
         border-left: none;
         border-radius: 0px;
     }
 
-    :nth-child(4) {
+    .headerSearchItem:nth-child(4) {
         border-left: none;
         border-radius: 0px 8px 8px 0px;
         padding: 0;
